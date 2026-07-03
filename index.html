@@ -3,199 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Pages Site</title>
+    <title>Full Stack AI Engineering Roadmap</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            line-height: 1.6;
         }
-        
-        .container {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 50px;
-            max-width: 700px;
-            width: 100%;
-            text-align: center;
-            animation: fadeIn 0.8s ease-in;
+        .sidebar {
+            position: fixed; left: 0; top: 0; bottom: 0; width: 300px;
+            background: #161b22; border-right: 1px solid #30363d; 
+            overflow-y: auto; padding: 20px; z-index: 10;
         }
-        
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        .sidebar h2 { color: #58a6ff; font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin: 20px 0 8px 0; }
+        .sidebar h2:first-child { margin-top: 0; }
+        .sidebar a {
+            display: block; color: #8b949e; text-decoration: none;
+            padding: 4px 8px; border-radius: 4px; font-size: 14px; margin: 2px 0;
         }
-        
-        h1 {
-            color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+        .sidebar a:hover, .sidebar a.active { background: #1f2937; color: #58a6ff; }
+        .main { margin-left: 300px; padding: 40px 48px; max-width: 960px; }
+        .main h1 { color: #f0f6fc; font-size: 28px; margin-bottom: 8px; }
+        .main h2 { color: #58a6ff; font-size: 22px; margin: 32px 0 12px 0; border-bottom: 1px solid #21262d; padding-bottom: 8px; }
+        .main h3 { color: #f0f6fc; font-size: 18px; margin: 24px 0 8px 0; }
+        .main p { margin: 12px 0; }
+        .main pre { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 16px; overflow-x: auto; margin: 16px 0; }
+        .main code { background: #161b22; padding: 2px 6px; border-radius: 4px; font-size: 14px; }
+        .main table { border-collapse: collapse; width: 100%; margin: 16px 0; }
+        .main th, .main td { border: 1px solid #30363d; padding: 8px 12px; text-align: left; }
+        .main th { background: #161b22; }
+        .main blockquote { border-left: 4px solid #58a6ff; padding: 8px 16px; margin: 16px 0; background: #161b22; border-radius: 0 6px 6px 0; }
+        .main img { max-width: 100%; border-radius: 6px; }
+        .nav-top { position: fixed; top: 0; right: 0; left: 300px; background: #0d1117; border-bottom: 1px solid #30363d; padding: 8px 48px; display: flex; gap: 16px; z-index: 9; }
+        .nav-top a { color: #8b949e; text-decoration: none; font-size: 13px; }
+        .nav-top a:hover { color: #58a6ff; }
+        @media (max-width: 768px) {
+            .sidebar { display: none; }
+            .main { margin-left: 0; padding: 20px; }
+            .nav-top { left: 0; }
         }
-        
-        .emoji {
-            font-size: 4rem;
-            display: block;
-            margin-bottom: 20px;
-        }
-        
-        .status {
-            background: #10b981;
-            color: white;
-            padding: 10px 25px;
-            border-radius: 50px;
-            display: inline-block;
-            font-weight: 600;
-            margin: 20px 0;
-            letter-spacing: 1px;
-        }
-        
-        p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin: 15px 0;
-        }
-        
-        .info-box {
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 20px;
-            margin: 25px 0;
-            text-align: left;
-            border-left: 4px solid #667eea;
-        }
-        
-        .info-box h3 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        
-        .info-box ul {
-            list-style: none;
-            padding: 0;
-        }
-        
-        .info-box ul li {
-            padding: 8px 0;
-            color: #555;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        .info-box ul li:last-child {
-            border-bottom: none;
-        }
-        
-        .info-box ul li strong {
-            color: #333;
-            display: inline-block;
-            min-width: 120px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-top: 15px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
-        }
-        
-        .footer {
-            margin-top: 30px;
-            font-size: 0.9rem;
-            color: #888;
-        }
-        
-        .footer a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        .badge {
-            display: inline-block;
-            background: #e9ecef;
-            color: #495057;
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.85rem;
-            margin: 5px;
-        }
+        .loading { text-align: center; padding: 80px; color: #8b949e; }
+        .section-nav { margin-left: 16px; font-size: 13px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <span class="emoji">🚀</span>
-        <h1>Welcome to My Site</h1>
-        <div class="status">✅ Live on GitHub Pages</div>
-        
-        <p>
-            This is a simple HTML page deployed on GitHub Pages. 
-            You can edit this file to create your own website.
-        </p>
-        
-        <div class="info-box">
-            <h3>📋 Site Information</h3>
-            <ul>
-                <li><strong>Status:</strong> <span style="color: #10b981;">● Active</span></li>
-                <li><strong>Hosting:</strong> GitHub Pages</li>
-                <li><strong>Deployed:</strong> <span id="deploy-date"></span></li>
-                <li><strong>File:</strong> index.html</li>
-            </ul>
-        </div>
-        
-        <div>
-            <span class="badge">📝 HTML5</span>
-            <span class="badge">🎨 CSS3</span>
-            <span class="badge">🚀 Fast</span>
-            <span class="badge">🔒 HTTPS</span>
-        </div>
-        
-        <a href="https://docs.github.com/en/pages" target="_blank" class="btn">
-            📖 GitHub Pages Docs
-        </a>
-        
-        <div class="footer">
-            Made with ❤️ &bull; 
-            <a href="#" onclick="alert('Hello! This is your GitHub Pages site.')">Click me</a>
-        </div>
+    <div class="nav-top">
+        <a href="#" onclick="loadFile('README.md'); return false;">Home</a>
+        <a href="#" onclick="loadFile('01-frontmatter.md'); return false;">Preface</a>
+        <a href="https://github.com/Dhruvashingote07/Full-Stack-AI-Engineering-Roadmap" target="_blank">GitHub</a>
     </div>
 
+    <div class="sidebar" id="sidebar">
+        <h2>Book</h2>
+        <a href="#" class="active" onclick="loadFile('README.md'); return false;">📖 Home</a>
+        <a href="#" onclick="loadFile('01-frontmatter.md'); return false;">📖 Preface & TOC</a>
+        <h2>Part 1 — CS Foundations</h2>
+        <a href="#" onclick="loadFile('02-part1-computer-science.md'); return false;">Ch 1-8: Computer Science</a>
+        <h2>Part 2 — Programming</h2>
+        <a href="#" onclick="loadFile('03-part2-programming.md'); return false;">Ch 9-14: Programming Fund.</a>
+        <h2>Part 3 — Java</h2>
+        <a href="#" onclick="loadFile('04-part3-java.md'); return false;">Ch 15-26: Java</a>
+        <h2>Part 4 — Spring</h2>
+        <a href="#" onclick="loadFile('05-part4-spring.md'); return false;">Ch 27-34: Spring</a>
+        <h2>Parts 5-9</h2>
+        <div class="section-nav">
+            <a href="#" onclick="loadFile('06-part5-frontend.md'); return false;">Ch 35-45: Frontend</a>
+            <a href="#" onclick="loadFile('07-part6-nodejs.md'); return false;">Ch 46-53: Node.js</a>
+            <a href="#" onclick="loadFile('08-part7-databases.md'); return false;">Ch 54-64: Databases</a>
+            <a href="#" onclick="loadFile('09-part8-devops.md'); return false;">Ch 65-77: DevOps</a>
+            <a href="#" onclick="loadFile('10-part9-cloud.md'); return false;">Ch 78-87: Cloud</a>
+        </div>
+        <h2>Parts 10-14 — AI/ML</h2>
+        <div class="section-nav">
+            <a href="#" onclick="loadFile('11-part10-python.md'); return false;">Ch 58-70: Python</a>
+            <a href="#" onclick="loadFile('12-part11-data-analytics.md'); return false;">Ch 71-81: Data Analytics</a>
+            <a href="#" onclick="loadFile('13-part12-machine-learning.md'); return false;">Ch 82-91: ML</a>
+            <a href="#" onclick="loadFile('14-part13-deep-learning.md'); return false;">Ch 92-100: Deep Learning</a>
+            <a href="#" onclick="loadFile('15-part14-generative-ai.md'); return false;">Ch 101-120: Generative AI</a>
+        </div>
+        <h2>Parts 15-19</h2>
+        <div class="section-nav">
+            <a href="#" onclick="loadFile('16-part15-mlops.md'); return false;">MLOps</a>
+            <a href="#" onclick="loadFile('17-part16-software-engineering.md'); return false;">Software Eng.</a>
+            <a href="#" onclick="loadFile('18-part17-security.md'); return false;">Security</a>
+            <a href="#" onclick="loadFile('19-part18-testing.md'); return false;">Testing</a>
+            <a href="#" onclick="loadFile('20-part19-career.md'); return false;">Career</a>
+        </div>
+        <h2>Reference</h2>
+        <a href="#" onclick="loadFile('21-projects.md'); return false;">🚀 120 Projects</a>
+        <a href="#" onclick="loadFile('22-interview-questions.md'); return false;">🎯 Interview Questions</a>
+        <a href="#" onclick="loadFile('23-daily-roadmap.md'); return false;">📅 1000 Day Plan</a>
+        <a href="#" onclick="loadFile('24-appendix.md'); return false;">📚 Appendix</a>
+    </div>
+
+    <div class="main" id="content">
+        <div class="loading">Loading...</div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        // Display current date
-        document.getElementById('deploy-date').textContent = new Date().toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        });
-        
-        // Console message (check browser console)
-        console.log('🎉 GitHub Pages is live!');
-        console.log('📝 Edit index.html to customize this site.');
+        async function loadFile(filename) {
+            document.getElementById('content').innerHTML = '<div class="loading">Loading...</div>';
+            document.querySelectorAll('.sidebar a').forEach(a => a.classList.remove('active'));
+            const links = document.querySelectorAll('.sidebar a');
+            for (let a of links) {
+                if (a.getAttribute('onclick') && a.getAttribute('onclick').includes(filename)) {
+                    a.classList.add('active');
+                    break;
+                }
+            }
+            try {
+                const resp = await fetch(filename);
+                if (!resp.ok) throw new Error('Not found');
+                const md = await resp.text();
+                document.getElementById('content').innerHTML = marked.parse(md, { breaks: true, gfm: true });
+                document.getElementById('content').querySelectorAll('a').forEach(a => {
+                    if (a.href.endsWith('.md') && !a.href.startsWith('http')) {
+                        const href = a.getAttribute('href');
+                        if (href && href.endsWith('.md')) {
+                            a.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                loadFile(href);
+                            });
+                        }
+                    }
+                });
+            } catch (e) {
+                document.getElementById('content').innerHTML = '<div class="loading">Error loading file. Make sure you are viewing via GitHub Pages or a local server.</div>';
+            }
+        }
+        loadFile('README.md');
     </script>
 </body>
 </html>
