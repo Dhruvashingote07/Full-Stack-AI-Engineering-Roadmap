@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My GitHub Pages Site</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 50px;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .emoji {
+            font-size: 4rem;
+            display: block;
+            margin-bottom: 20px;
+        }
+        
+        .status {
+            background: #10b981;
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            display: inline-block;
+            font-weight: 600;
+            margin: 20px 0;
+            letter-spacing: 1px;
+        }
+        
+        p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin: 15px 0;
+        }
+        
+        .info-box {
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 25px 0;
+            text-align: left;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-box h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .info-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .info-box ul li {
+            padding: 8px 0;
+            color: #555;
+            border-bottom: 1px solid #e9ecef;
+        }
+        
+        .info-box ul li:last-child {
+            border-bottom: none;
+        }
+        
+        .info-box ul li strong {
+            color: #333;
+            display: inline-block;
+            min-width: 120px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .footer {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #888;
+        }
+        
+        .footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #e9ecef;
+            color: #495057;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="emoji">🚀</span>
+        <h1>Welcome to My Site</h1>
+        <div class="status">✅ Live on GitHub Pages</div>
+        
+        <p>
+            This is a simple HTML page deployed on GitHub Pages. 
+            You can edit this file to create your own website.
+        </p>
+        
+        <div class="info-box">
+            <h3>📋 Site Information</h3>
+            <ul>
+                <li><strong>Status:</strong> <span style="color: #10b981;">● Active</span></li>
+                <li><strong>Hosting:</strong> GitHub Pages</li>
+                <li><strong>Deployed:</strong> <span id="deploy-date"></span></li>
+                <li><strong>File:</strong> index.html</li>
+            </ul>
+        </div>
+        
+        <div>
+            <span class="badge">📝 HTML5</span>
+            <span class="badge">🎨 CSS3</span>
+            <span class="badge">🚀 Fast</span>
+            <span class="badge">🔒 HTTPS</span>
+        </div>
+        
+        <a href="https://docs.github.com/en/pages" target="_blank" class="btn">
+            📖 GitHub Pages Docs
+        </a>
+        
+        <div class="footer">
+            Made with ❤️ &bull; 
+            <a href="#" onclick="alert('Hello! This is your GitHub Pages site.')">Click me</a>
+        </div>
+    </div>
+
+    <script>
+        // Display current date
+        document.getElementById('deploy-date').textContent = new Date().toLocaleDateString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric'
+        });
+        
+        // Console message (check browser console)
+        console.log('🎉 GitHub Pages is live!');
+        console.log('📝 Edit index.html to customize this site.');
+    </script>
+</body>
+</html>
